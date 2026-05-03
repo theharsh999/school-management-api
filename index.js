@@ -36,6 +36,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 // Route for adding School data 
 app.post("/addSchool", (req, res) => {
     console.log("AddSchool API hit");
+    console.log(req.body);
     const { name, address, latitude, longitude } = req.body;
 
     // adding validation
@@ -105,6 +106,8 @@ app.get("/", (req, res) => {
     res.send("API Working");
 });
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
